@@ -102,12 +102,10 @@ const HomePage = () => {
   };
   return (
     <Layout title={"ALl Products - Best offers "}>
-      {/* banner image */}
       <Banner />
-      {/* banner image */}
-      <ProductTypeGrid slug="panjabi"/>
-      <ProductTypeGrid slug="attors"/>
-      <BannersGrid/>
+      <ProductTypeGrid slug="panjabi" />
+      <ProductTypeGrid slug="attors" />
+      <BannersGrid />
     </Layout>
   );
 };

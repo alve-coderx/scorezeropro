@@ -10,7 +10,7 @@ const ProductTypeGrid = ({ slug }) => {
     dots: false,
     autoplay: false,
     autoplaySpeed: 3000,
-    slidesToShow: 6,
+    slidesToShow: 4,
     slidesToScroll: 2,
     infinite: false,
     responsive: [
@@ -23,13 +23,13 @@ const ProductTypeGrid = ({ slug }) => {
       {
         breakpoint: 1150,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 2,
         },
       },
       {
         breakpoint: 1300,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 4,
         },
       },
     ],

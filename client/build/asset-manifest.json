@@ -1,17 +1,18 @@
 {
   "files": {
-    "main.css": "/static/css/main.3e51aac0.css",
-    "main.js": "/static/js/main.68aaa96b.js",
-    "static/media/banner3.jpg": "/static/media/banner3.e38b9c4f52d24de6db25.jpg",
+    "main.css": "/static/css/main.515e5293.css",
+    "main.js": "/static/js/main.27780b68.js",
     "static/media/jacket1.jpg": "/static/media/jacket1.ec44cf3a1a9cd756e41a.jpg",
+    "static/media/banner3.png": "/static/media/banner3.17fe2bcb7592ad7f6f42.png",
     "static/media/badam.jpg": "/static/media/badam.36ce15f506c29fa46ba7.jpg",
     "static/media/logo_lg_menu.png": "/static/media/logo_lg_menu.78bc6b0ee4cccebcb786.png",
     "static/media/attar1.jpg": "/static/media/attar1.19634de0d383b8d10bfe.jpg",
     "static/media/logo_lg.png": "/static/media/logo_lg.89d2065f4769d6c8ceca.png",
-    "static/media/logo.png": "/static/media/logo.a2f1869113d64d981845.png",
+    "static/media/logo.png": "/static/media/logo.c5646884c0d6d86a4fc3.png",
     "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
+    "static/media/callus.PNG": "/static/media/callus.19ed65abe32c9698772f.PNG",
     "static/media/wear.svg": "/static/media/wear.78a206eca8cba6b6bcd821016fa8620f.svg",
     "static/media/insta.svg": "/static/media/insta.1b1bf51d0ecf05b8aff4b2de0ddccb40.svg",
     "static/media/fragrance.svg": "/static/media/fragrance.bbb797dd816196ee5913464e8c409e2a.svg",
@@ -23,11 +24,11 @@
     "static/media/admin_logout.svg": "/static/media/admin_logout.f37fbbeb348b70b9e959fb27c64c9557.svg",
     "static/media/admin_ico.svg": "/static/media/admin_ico.03fac6a7e8fd8e05c6ab6aa16cfda6bb.svg",
     "index.html": "/index.html",
-    "main.3e51aac0.css.map": "/static/css/main.3e51aac0.css.map",
-    "main.68aaa96b.js.map": "/static/js/main.68aaa96b.js.map"
+    "main.515e5293.css.map": "/static/css/main.515e5293.css.map",
+    "main.27780b68.js.map": "/static/js/main.27780b68.js.map"
   },
   "entrypoints": [
-    "static/css/main.3e51aac0.css",
-    "static/js/main.68aaa96b.js"
+    "static/css/main.515e5293.css",
+    "static/js/main.27780b68.js"
   ]
 }

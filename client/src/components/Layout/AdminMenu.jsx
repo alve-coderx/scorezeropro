@@ -31,8 +31,7 @@ const RenderNavIcons = ({ goPath, icon }) => {
 };
 
 const AdminMenu = () => {
-  const [menu, setMenu] = useState(true);
-  const [mobileMenu, setMobileMenu] = useState(true);
+  const [menu, setMenu] = useState(false);
   const [auth] = useAuth();
 
   return (

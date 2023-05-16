@@ -9,7 +9,7 @@ const Product = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="cursor-pointer bg-white p-2 border drop-shadow-sm card-max-w rounded-md">
+    <div className="cursor-pointer bg-gray-100 border drop-shadow-sm card-max-w rounded-md">
       <div>
         <img
           src={`/api/v1/product/product-photo/${item._id}`}
@@ -17,19 +17,17 @@ const Product = ({ item }) => {
           className="hover:scale-75 transition-all "
         />
       </div>
-      <div className="text-center my-2">
-        <p className="text-black lg:text-md text-xs font-[600]">{item.name}</p>
-        <p className="text-gray-500 font-[400] lg:text-md text-xs">
-          {item.description.substring(0, 20)}...
-        </p>
-        <p className="text-black font-[600] lg:text-md text-xs">
+      <div className="text-center mt-1">
+        <p className="text-black lg:text-lg text-xs font-[500]">{item.name}</p>
+       
+        <p className="text-black font-[500] lg:text-lg text-xs">
           {item.price.toLocaleString("en-US", {
             style: "currency",
             currency: "USD",
           })}
         </p>
       </div>
-      <div className="flex justify-center  items-center space-x-1">
+      <div className="flex justify-center mb-1 items-center space-x-1">
         <button
           onClick={() => navigate(`/product/${item.slug}`)}
           className="bg-black lg:text-sm text-xs rounded-md text-white py-2 px-4"

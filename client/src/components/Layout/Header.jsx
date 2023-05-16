@@ -9,26 +9,48 @@ import { FiLogIn } from "react-icons/fi";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { BiCategoryAlt } from "react-icons/bi";
 import logo from "../../assets/logo.png";
+import callus from "../../assets/callus.PNG";
 import { useAuth } from "../../context/auth";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import CartPage from "../../pages/CartPage";
 import DropDown from "../../components/DropDown/DropDown";
+import Sidebar from "../Sidebar";
+import { links } from "../../utils/links";
 
-const menus = [
-  { name: "Home", href: "/" },
-  { name: "Screen Protection", href: "/" },
-];
-
-const TopHead = ({
+const TopHead = ({ sidebar, setSidebar }) => {
+  return (
+    <div className="bg-white border-b py-2">
+      <div className="flex items-center justify-between container mx-auto px-2">
+        <div className="flex space-x-4 items-center">
+          <AiOutlineMenu
+            className="text-black text-2xl block"
+            onClick={() => setSidebar(true)}
+          />
+          <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
+          <img src={logo} alt="logo" className="lg:w-58 w-40" />
+        </div>
+        <div className="lg:w-[30rem]">
+          <SearchInput />
+        </div>
+        <img
+          src={callus}
+          alt="callus"
+          className="lg:w-58 w-40 lg:block hidden"
+        />
+      </div>
+    </div>
+  );
+};
+const MenuItems = ({
+  setOpenMenu,
+  opemMenu,
+  auth,
+  categories,
   open,
   setOpen,
-  sidebar,
-  setSidebar,
-  auth,
   setAuth,
-  cart,
 }) => {
   const handleLogout = () => {
     setAuth({
@@ -39,84 +61,22 @@ const TopHead = ({
     localStorage.removeItem("auth");
   };
   return (
-    <div className="bg-white">
-      <div className="flex items-center justify-between container mx-auto px-2">
-        <AiOutlineMenu
-          className="text-black lg:text-2xl text-md lg:hidden block"
-          onClick={() => setSidebar(true)}
-        />
-        {/* <Sidebar sidebar={sidebar} setSidebar={setSidebar} /> */}
-        <div>
-          <img src={logo} alt="logo" className="lg:w-72 w-40" />
-        </div>
-        <div className="flex items-center space-x-3 ">
-          <SearchInput />
-          <div>
-            {/* <span>{cart.length}</span> */}
-            <AiOutlineShopping
-              className="lg:text-2xl text-md cursor-pointer"
-              onClick={() => setOpen(true)}
-            />
-          </div>
-          {<CartPage open={open} setOpen={setOpen} />}
-          {auth.user ? (
-            <DropDown
-              label={
-                <AiOutlineUser className="lg:text-2xl text-md cursor-pointer" />
-              }
-            >
-              <NavLink
-                to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
-              >
-                <p className=" font-[500] hover:text-secondary opacity-50">
-                  {auth?.user?.role === 1 ? "Dashboard" : "Profile"}
-                </p>
-              </NavLink>
-              <NavLink to={`/dashboard/user/orders`}>
-                <p className=" font-[500] hover:text-secondary opacity-50">
-                  Orders
-                </p>
-              </NavLink>
-              <NavLink to={`/`}>
-                <p className=" font-[500] hover:text-secondary opacity-50">
-                  Account Details
-                </p>
-              </NavLink>
-              <button
-                onClick={handleLogout}
-                className="font-[500] hover:text-secondary opacity-50"
-              >
-                Logout
-              </button>
-            </DropDown>
-          ) : (
-            <NavLink to="/login">
-              <FiLogIn className="lg:text-xl text-md cursor-pointer" />
-            </NavLink>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-const MenuItems = ({ setOpenMenu, opemMenu, auth, categories }) => {
-  return (
-    <div className="bg-black lg:block hidden">
-      <div className="container mx-auto flex items-center space-x-2">
+    <div className="bg-white border-b p-2">
+      <div className="flex items-center justify-between space-x-2 container mx-auto">
         <div
           onMouseEnter={() => setOpenMenu(true)}
           onMouseLeave={() => setOpenMenu(false)}
-          className="bg-secondary p-2 relative cursor-pointer"
+          className="relative cursor-pointer"
         >
-          <div className="flex items-center justify-between w-72">
+          <div className="flex items-center bg-secondary rounded-md p-2 justify-between w-52">
             <div className="flex items-center">
               <BiCategoryAlt className="font-[600] text-lg" />
               <span className="font-[600]">CATEGORIES</span>
             </div>
-            <MdOutlineKeyboardArrowDown className="font-[600] text-lg" />
+            <MdOutlineKeyboardArrowDown className="font-[600] text-xl" />
           </div>
           <div
-            className={`absolute top-8 border bg-white w-full overflow-y-hidden flex flex-col left-0 transition-all ${
+            className={`absolute top-10 rounded-b-md  bg-white w-full overflow-y-hidden flex flex-col left-0 transition-all ${
               opemMenu ? "h-auto" : "h-0 "
             }`}
           >
@@ -131,16 +91,70 @@ const MenuItems = ({ setOpenMenu, opemMenu, auth, categories }) => {
             ))}
           </div>
         </div>
-        <div className="flex items-center space-x-5 ">
-          {menus.map((item) => (
+        <div className="lg:flex hidden items-center space-x-2 ">
+          {links.map((item, index) => (
             <NavLink
               key={item.name}
               to={item.href}
-              className="text-white font-[500]"
+              className={
+                index === links.length - 1
+                  ? "text-lg font-[500]  px-4"
+                  : "border-r text-lg font-[500]  px-4"
+              }
             >
               {item.name}
             </NavLink>
           ))}
+        </div>
+        <div className="flex items-center space-x-5">
+          <div>
+            {/* <span>{cart.length}</span> */}
+            <AiOutlineShopping
+              className="text-2xl cursor-pointer"
+              onClick={() => setOpen(true)}
+            />
+          </div>
+          {<CartPage open={open} setOpen={setOpen} />}
+          {auth.user ? (
+            <DropDown
+              label={<AiOutlineUser className="text-2xl cursor-pointer" />}
+            >
+              <NavLink
+                to={`/dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`}
+              >
+                <p className=" font-[500] hover:text-secondary opacity-50">
+                  {auth?.user?.role === 1 ? "Dashboard" : "Profile"}
+                </p>
+              </NavLink>
+              {auth?.user?.role === 1 ? (
+                ""
+              ) : (
+                <>
+                  <NavLink to={`/dashboard/user/orders`}>
+                    <p className=" font-[500] hover:text-secondary opacity-50">
+                      Orders
+                    </p>
+                  </NavLink>
+                  <NavLink to={`/`}>
+                    <p className=" font-[500] hover:text-secondary opacity-50">
+                      Account Details
+                    </p>
+                  </NavLink>
+                </>
+              )}
+
+              <button
+                onClick={handleLogout}
+                className="font-[500] hover:text-secondary opacity-50"
+              >
+                Logout
+              </button>
+            </DropDown>
+          ) : (
+            <NavLink to="/login">
+              <FiLogIn className="text-xl cursor-pointer" />
+            </NavLink>
+          )}
         </div>
       </div>
     </div>
@@ -156,20 +170,16 @@ const Header = () => {
   return (
     <>
       <nav className="fixed w-full z-10">
-        <TopHead
-          sidebar={sidebar}
-          setSidebar={setSidebar}
-          setOpen={setOpen}
-          open={open}
-          auth={auth}
-          setAuth={setAuth}
-          cart={cart}
-        />
+        <TopHead sidebar={sidebar} setSidebar={setSidebar} />
         <MenuItems
           categories={categories}
           auth={auth}
           setOpenMenu={setOpenMenu}
           opemMenu={opemMenu}
+          setOpen={setOpen}
+          open={open}
+          cart={cart}
+          setAuth={setAuth}
         />
       </nav>
     </>
