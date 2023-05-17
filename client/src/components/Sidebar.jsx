@@ -56,6 +56,7 @@ const Sidebar = ({ setSidebar, sidebar }) => {
                           <NavLink
                             className="border-b w-full py-5 text-lg font-[500]"
                             to={item.href}
+                            key={item.name}
                           >
                             {item.name}
                           </NavLink>

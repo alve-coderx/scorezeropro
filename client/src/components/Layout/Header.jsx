@@ -18,6 +18,7 @@ import CartPage from "../../pages/CartPage";
 import DropDown from "../../components/DropDown/DropDown";
 import Sidebar from "../Sidebar";
 import { links } from "../../utils/links";
+import logo_sm from "../../assets/logo_sm.png";
 
 const TopHead = ({ sidebar, setSidebar }) => {
   return (
@@ -29,7 +30,8 @@ const TopHead = ({ sidebar, setSidebar }) => {
             onClick={() => setSidebar(true)}
           />
           <Sidebar sidebar={sidebar} setSidebar={setSidebar} />
-          <img src={logo} alt="logo" className="lg:w-58 w-40" />
+          <img src={logo} alt="logo" className="lg:block hidden w-36 " />
+          <img src={logo_sm} alt="logo_sm" className="lg:hidden block w-10" />
         </div>
         <div className="lg:w-[30rem]">
           <SearchInput />
@@ -169,7 +171,7 @@ const Header = () => {
   const categories = useCategory();
   return (
     <>
-      <nav className="fixed w-full z-10">
+      <nav className="fixed w-screen z-10">
         <TopHead sidebar={sidebar} setSidebar={setSidebar} />
         <MenuItems
           categories={categories}

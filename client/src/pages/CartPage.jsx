@@ -91,7 +91,7 @@ const CartPage = ({ setOpen, open }) => {
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="row">
-                      <div className="ml-3 flex h-7 items-center">
+                      <div className="flex  h-7 items-center">
                         <button
                           type="button"
                           className="-m-2 p-2 text-gray-400 hover:text-gray-500"

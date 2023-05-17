@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.515e5293.css",
-    "main.js": "/static/js/main.27780b68.js",
+    "main.css": "/static/css/main.ff04b368.css",
+    "main.js": "/static/js/main.424b32eb.js",
+    "static/media/banner1.jpg": "/static/media/banner1.70d519cc5e7ed977f8b2.jpg",
+    "static/media/banner3.jpg": "/static/media/banner3.8e24fdb28b3e15a76e3a.jpg",
+    "static/media/banner2.jpg": "/static/media/banner2.17a3e87aade61acbb0c6.jpg",
     "static/media/jacket1.jpg": "/static/media/jacket1.ec44cf3a1a9cd756e41a.jpg",
-    "static/media/banner3.png": "/static/media/banner3.17fe2bcb7592ad7f6f42.png",
     "static/media/badam.jpg": "/static/media/badam.36ce15f506c29fa46ba7.jpg",
     "static/media/logo_lg_menu.png": "/static/media/logo_lg_menu.78bc6b0ee4cccebcb786.png",
     "static/media/attar1.jpg": "/static/media/attar1.19634de0d383b8d10bfe.jpg",
     "static/media/logo_lg.png": "/static/media/logo_lg.89d2065f4769d6c8ceca.png",
     "static/media/logo.png": "/static/media/logo.c5646884c0d6d86a4fc3.png",
+    "static/media/logo_sm.png": "/static/media/logo_sm.61fdec5382042ce116ce.png",
     "static/media/revicons.eot": "/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/static/media/revicons.e8746a624ed098489406.woff",
@@ -24,11 +27,11 @@
     "static/media/admin_logout.svg": "/static/media/admin_logout.f37fbbeb348b70b9e959fb27c64c9557.svg",
     "static/media/admin_ico.svg": "/static/media/admin_ico.03fac6a7e8fd8e05c6ab6aa16cfda6bb.svg",
     "index.html": "/index.html",
-    "main.515e5293.css.map": "/static/css/main.515e5293.css.map",
-    "main.27780b68.js.map": "/static/js/main.27780b68.js.map"
+    "main.ff04b368.css.map": "/static/css/main.ff04b368.css.map",
+    "main.424b32eb.js.map": "/static/js/main.424b32eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.515e5293.css",
-    "static/js/main.27780b68.js"
+    "static/css/main.ff04b368.css",
+    "static/js/main.424b32eb.js"
   ]
 }

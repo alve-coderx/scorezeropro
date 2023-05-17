@@ -10,6 +10,7 @@
 
 body {
   font-family: "Poppins", sans-serif;
+  background-color: white;
 }
 
 /* font-family: 'Poppins', sans-serif; */
@@ -24,9 +25,9 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
-.card-max-w {
+/* .card-max-w {
   max-width: 280px !important;
-}
+} */
 .loader {
   border: 3px solid #f3f3f3; /* Light grey */
   border-top: 3px solid #43f8ba; /* Blue */

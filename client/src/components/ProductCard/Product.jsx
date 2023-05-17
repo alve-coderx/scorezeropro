@@ -9,17 +9,17 @@ const Product = ({ item }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="cursor-pointer bg-gray-100 border drop-shadow-sm card-max-w rounded-md">
+    <div className="cursor-pointer bg-gray-100 border drop-shadow-sm lg:w-80 w-48 rounded-md">
       <div>
         <img
           src={`/api/v1/product/product-photo/${item._id}`}
           alt="samp"
-          className="hover:scale-75 transition-all "
+          className="hover:scale-75 transition-all w-full"
         />
       </div>
       <div className="text-center mt-1">
         <p className="text-black lg:text-lg text-xs font-[500]">{item.name}</p>
-       
+
         <p className="text-black font-[500] lg:text-lg text-xs">
           {item.price.toLocaleString("en-US", {
             style: "currency",

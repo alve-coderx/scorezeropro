@@ -49,10 +49,10 @@ const AdminOrders = () => {
             <p>All Orders</p>
             {orders?.map((o, i) => {
               return (
-                <div class="flex flex-col">
-                  <div class="overflow-x-auto ">
-                    <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                      <div class="overflow-hidden">
+                <div className="flex flex-col">
+                  <div className="overflow-x-auto ">
+                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+                      <div className="overflow-hidden">
                         <table className="min-w-full text-left text-sm font-light">
                           <thead className="border-b font-medium dark:border-neutral-500">
                             <tr>
@@ -82,23 +82,23 @@ const AdminOrders = () => {
                           </thead>
                           <tbody>
                             <tr className="border-b dark:border-neutral-500">
-                              <td class="whitespace-nowrap px-6 py-4 font-medium">
+                              <td className="whitespace-nowrap px-6 py-4 font-medium">
                                 {i + 1}
                               </td>
-                              <td class="whitespace-nowrap px-6 py-4">
+                              <td className="whitespace-nowrap px-6 py-4">
                                 {o?.status}
                               </td>
-                              <td class="whitespace-nowrap px-6 py-4">
+                              <td className="whitespace-nowrap px-6 py-4">
                                 {o?.buyer?.name}
                               </td>
-                              <td class="whitespace-nowrap px-6 py-4">
+                              <td className="whitespace-nowrap px-6 py-4">
                                 {moment(o?.createAt).fromNow()}
                               </td>
                               <td>{"Success"}</td>
-                              <td class="whitespace-nowrap px-6 py-4">
+                              <td className="whitespace-nowrap px-6 py-4">
                                 {o?.products?.length}
                               </td>
-                              <td class="whitespace-nowrap px-6 py-4">
+                              <td className="whitespace-nowrap px-6 py-4">
                                 {o?.products?.map((p, i) => (
                                   <div className="flex space-x-2" key={p._id}>
                                     <div className="col-md-4">
