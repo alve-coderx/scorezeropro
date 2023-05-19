@@ -103,9 +103,10 @@ const HomePage = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <Banner />
-      <ProductTypeGrid slug="panjabi" />
-      <ProductTypeGrid slug="attors" />
       <BannersGrid />
+      {categories.map((cat) => (
+        <ProductTypeGrid slug={cat.slug} />
+      ))}
     </Layout>
   );
 };

@@ -1,11 +1,23 @@
 import categoryModel from "../models/categoryModel.js";
 import slugify from "slugify";
-
+import fs from "fs";
 export const createCategoryController = async (req, res) => {
   try {
-    const { name } = req.body;
-    if (!name) {
-      return res.status(401).send({ message: "Name is required" });
+    const { name, description } = req.fields;
+    const { image, icon } = req.files;
+    switch (true) {
+      case !name:
+        return res.status(500).send({ error: "Name is Required" });
+      case !description:
+        return res.status(500).send({ error: "Description is Required" });
+      case image && image.size > 1000000:
+        return res
+          .status(500)
+          .send({ error: "image is Required and should be less then 1mb" });
+      case icon && icon.size > 1000000:
+        return res
+          .status(500)
+          .send({ error: "icon is Required and should be less then 1mb" });
     }
     const existingCategory = await categoryModel.findOne({ name });
     if (existingCategory) {
@@ -14,10 +26,16 @@ export const createCategoryController = async (req, res) => {
         message: "Category Already Exisits",
       });
     }
-    const category = await new categoryModel({
-      name,
-      slug: slugify(name),
-    }).save();
+    const category = new categoryModel({ ...req.fields, slug: slugify(name) });
+    if (image) {
+      category.image.data = fs.readFileSync(image.path);
+      category.image.contentType = image.type;
+    }
+    if (icon) {
+      category.icon.data = fs.readFileSync(icon.path);
+      category.icon.contentType = icon.type;
+    }
+    await category.save();
     res.status(201).send({
       success: true,
       message: "new category created",
@@ -27,8 +45,47 @@ export const createCategoryController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      errro,
+      error,
       message: "Errro in Category",
+    });
+  }
+};
+
+// get image
+export const categoryPhotoController = async (req, res) => {
+  try {
+    const category = await categoryModel
+      .findById(req.params.cid)
+      .select("image");
+    if (category.image.data) {
+      res.set("Content-type", category.image.contentType);
+      return res.status(200).send(category.image.data);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Erorr while getting photo",
+      error,
+    });
+  }
+};
+// get icon
+export const categoryIconController = async (req, res) => {
+  try {
+    const category = await categoryModel
+      .findById(req.params.cid)
+      .select("icon");
+    if (category.icon.data) {
+      res.set("Content-type", category.icon.contentType);
+      return res.status(200).send(category.icon.data);
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Erorr while getting photo",
+      error,
     });
   }
 };

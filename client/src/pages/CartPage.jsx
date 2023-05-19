@@ -89,7 +89,7 @@ const CartPage = ({ setOpen, open }) => {
                 leaveTo="translate-x-full"
               >
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
-                  <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                  <div className="flex h-full flex-col bg-white shadow-xl">
                     <div className="row">
                       <div className="flex  h-7 items-center">
                         <button
@@ -123,7 +123,7 @@ const CartPage = ({ setOpen, open }) => {
                     </div>
                     <div className="container ">
                       <div className="row ">
-                        <div className="flex flex-col items-center px-2 space-y-2">
+                        <div className="flex flex-col items-center px-2 h-[790px] pb-10 overflow-y-auto space-y-2">
                           {cart?.map((p) => (
                             <div
                               className="cursor-pointer flex items-start space-x-5 bg-white border drop-shadow-sm w-full p-1 rounded-md"
@@ -162,60 +162,62 @@ const CartPage = ({ setOpen, open }) => {
                             </div>
                           ))}
                         </div>
-                        <div className="absolute border-t bottom-0 w-full px-5">
-                          <p className="text-black font-[600]">
-                            Total : {totalPrice()}{" "}
-                          </p>
-                          {auth?.user?.address ? (
-                            <>
-                              <div className="flex items-start justify-between">
-                                <p className="text-black font-[600]">
-                                  Current Address :
-                                </p>
-                                <div>
-                                  <h5>{auth?.user?.address}</h5>
+                        <div className="absolute border-t bg-white bottom-0 flex items-start justify-between w-full p-5">
+                          <div>
+                            <p className="text-black font-[600]">
+                              Total : {totalPrice()}{" "}
+                            </p>
+                            {auth?.user?.address ? (
+                              <>
+                                <div className="flex items-start justify-between">
+                                  <p className="text-black font-[600]">
+                                    Current Address :
+                                  </p>
+                                  <div>
+                                    <h5>{auth?.user?.address}</h5>
+                                    <button
+                                      className="text-xs text-black font-[600]"
+                                      onClick={() =>
+                                        navigate("/dashboard/user/profile")
+                                      }
+                                    >
+                                      Update Address
+                                    </button>
+                                  </div>
+                                </div>
+                              </>
+                            ) : (
+                              <div className="mb-3">
+                                {auth?.token ? (
                                   <button
-                                    className="text-xs text-black font-[600]"
+                                    className="btn btn-outline-warning"
                                     onClick={() =>
                                       navigate("/dashboard/user/profile")
                                     }
                                   >
                                     Update Address
                                   </button>
-                                </div>
+                                ) : (
+                                  <button
+                                    className="btn btn-outline-warning"
+                                    onClick={() =>
+                                      navigate("/login", {
+                                        state: "/cart",
+                                      })
+                                    }
+                                  >
+                                    Plase Login to checkout
+                                  </button>
+                                )}
                               </div>
-                            </>
-                          ) : (
-                            <div className="mb-3">
-                              {auth?.token ? (
-                                <button
-                                  className="btn btn-outline-warning"
-                                  onClick={() =>
-                                    navigate("/dashboard/user/profile")
-                                  }
-                                >
-                                  Update Address
-                                </button>
-                              ) : (
-                                <button
-                                  className="btn btn-outline-warning"
-                                  onClick={() =>
-                                    navigate("/login", {
-                                      state: "/cart",
-                                    })
-                                  }
-                                >
-                                  Plase Login to checkout
-                                </button>
-                              )}
-                            </div>
-                          )}
-                          <div className="mt-2">
+                            )}
+                          </div>
+                          <div >
                             {!cart?.length ? (
                               ""
                             ) : (
                               <button
-                                className="btn btn-primary"
+                                className="bg-black px-4 py-2 text-white"
                                 onClick={handlePayment}
                                 disabled={loading || !auth?.user?.address}
                               >

@@ -10,16 +10,28 @@ import { AiOutlineDelete } from "react-icons/ai";
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [image, setImage] = useState("");
+  const [icon, setIcon] = useState("");
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
+  const [updatedDescription, setUpdatedDescription] = useState("");
+  const [updatedImage, setUpdatedImage] = useState("");
+  const [updatedIcon, setUpdatedIcon] = useState("");
   //handle Form
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const { data } = await axios.post("/api/v1/category/create-category", {
-        name,
-      });
+      const categoryData = new FormData();
+      categoryData.append("name", name);
+      categoryData.append("description", description);
+      categoryData.append("image", image);
+      categoryData.append("icon", icon);
+      const { data } = axios.post(
+        "/api/v1/category/create-category",
+        categoryData
+      );
       if (data?.success) {
         toast.success(`${name} is created`);
         getAllCategory();
@@ -50,7 +62,12 @@ const CreateCategory = () => {
     try {
       const { data } = await axios.put(
         `/api/v1/category/update-category/${selected._id}`,
-        { name: updatedName }
+        {
+          name: updatedName,
+          description: updatedDescription,
+          image: updatedImage,
+          icon: updatedIcon,
+        }
       );
       if (data?.success) {
         toast.success(`${updatedName} is updated`);
@@ -94,11 +111,17 @@ const CreateCategory = () => {
         <div className="w-50">
           <CategoryForm
             handleSubmit={handleSubmit}
-            value={name}
-            setValue={setName}
+            name={name}
+            setName={setName}
+            description={description}
+            setDescription={setDescription}
+            image={image}
+            setImage={setImage}
+            icon={icon}
+            setIcon={setIcon}
           />
         </div>
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto mt-5">
           <table className="bg-white w-96">
             <thead>
               <tr>
@@ -109,18 +132,15 @@ const CreateCategory = () => {
             </thead>
             <tbody>
               {categories?.map((c, index) => (
-                <tr className="text-center">
-                  <td key={c._id} className="border px-4 py-2">
-                    {index + 1}
-                  </td>
-                  <td key={c._id} className="border px-4 py-2">
-                    {c.name}
-                  </td>
+                <tr key={index} className="text-center">
+                  <td className="border px-4 py-2">{index + 1}</td>
+                  <td className="border px-4 py-2">{c.name}</td>
                   <td className="border px-4 py-2">
                     <button
                       onClick={() => {
                         setVisible(true);
                         setUpdatedName(c.name);
+                        setUpdatedDescription(c.description);
                         setSelected(c);
                       }}
                       className="text-xl text-[blue]"
@@ -144,8 +164,10 @@ const CreateCategory = () => {
         {visible && (
           <Modal setVisible={setVisible} visible={visible}>
             <CategoryForm
-              value={updatedName}
-              setValue={setUpdatedName}
+              name={updatedName}
+              setName={setUpdatedName}
+              description={updatedDescription}
+              setDescription={setUpdatedDescription}
               handleSubmit={handleUpdate}
             />
           </Modal>

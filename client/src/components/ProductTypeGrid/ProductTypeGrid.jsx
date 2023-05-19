@@ -50,7 +50,7 @@ const ProductTypeGrid = ({ slug }) => {
   };
 
   return (
-    <div className="container mx-auto px-5">
+    <div className="container mx-auto lg:px-0 px-5">
       {products.length === 0 ? (
         <div className="flex justify-center min-h-[50vh] items-center">
           <div className="loader"></div>
@@ -61,7 +61,7 @@ const ProductTypeGrid = ({ slug }) => {
             <h4 className="uppercase text-xl">{category.name}</h4>
             <h6 className="text-xl">{products?.length} items</h6>
           </div>
-          <div className="">
+          <div className="overflow-hidden">
             <Slider {...settings_3}>
               {products?.map((p, index) => (
                 <Product item={p} key={index} />

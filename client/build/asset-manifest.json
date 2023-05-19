@@ -1,14 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.ff04b368.css",
-    "main.js": "/static/js/main.424b32eb.js",
+    "main.css": "/static/css/main.d8cea340.css",
+    "main.js": "/static/js/main.8832d13e.js",
     "static/media/banner1.jpg": "/static/media/banner1.70d519cc5e7ed977f8b2.jpg",
     "static/media/banner3.jpg": "/static/media/banner3.8e24fdb28b3e15a76e3a.jpg",
     "static/media/banner2.jpg": "/static/media/banner2.17a3e87aade61acbb0c6.jpg",
     "static/media/jacket1.jpg": "/static/media/jacket1.ec44cf3a1a9cd756e41a.jpg",
-    "static/media/badam.jpg": "/static/media/badam.36ce15f506c29fa46ba7.jpg",
     "static/media/logo_lg_menu.png": "/static/media/logo_lg_menu.78bc6b0ee4cccebcb786.png",
-    "static/media/attar1.jpg": "/static/media/attar1.19634de0d383b8d10bfe.jpg",
     "static/media/logo_lg.png": "/static/media/logo_lg.89d2065f4769d6c8ceca.png",
     "static/media/logo.png": "/static/media/logo.c5646884c0d6d86a4fc3.png",
     "static/media/logo_sm.png": "/static/media/logo_sm.61fdec5382042ce116ce.png",
@@ -18,20 +16,18 @@
     "static/media/callus.PNG": "/static/media/callus.19ed65abe32c9698772f.PNG",
     "static/media/wear.svg": "/static/media/wear.78a206eca8cba6b6bcd821016fa8620f.svg",
     "static/media/insta.svg": "/static/media/insta.1b1bf51d0ecf05b8aff4b2de0ddccb40.svg",
-    "static/media/fragrance.svg": "/static/media/fragrance.bbb797dd816196ee5913464e8c409e2a.svg",
     "static/media/slick.svg": "/static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "/static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/organic.svg": "/static/media/organic.11dee7d49e2729d7c9bda9e96e91e10d.svg",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/admin_logout.svg": "/static/media/admin_logout.f37fbbeb348b70b9e959fb27c64c9557.svg",
     "static/media/admin_ico.svg": "/static/media/admin_ico.03fac6a7e8fd8e05c6ab6aa16cfda6bb.svg",
     "index.html": "/index.html",
-    "main.ff04b368.css.map": "/static/css/main.ff04b368.css.map",
-    "main.424b32eb.js.map": "/static/js/main.424b32eb.js.map"
+    "main.d8cea340.css.map": "/static/css/main.d8cea340.css.map",
+    "main.8832d13e.js.map": "/static/js/main.8832d13e.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff04b368.css",
-    "static/js/main.424b32eb.js"
+    "static/css/main.d8cea340.css",
+    "static/js/main.8832d13e.js"
   ]
 }
